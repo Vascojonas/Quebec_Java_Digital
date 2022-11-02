@@ -7,10 +7,21 @@ import org.junit.jupiter.api.Test;
 
 public class PessoaTest {
 
+
     @Test
-    void validarCalculodeIdade(){
-        Pessoa pessoa= new Pessoa("julia", LocalDate.of(2020, 1, 1));
-        Assertions.assertEquals(2, pessoa.getIdade());
+    void deveCalcularIdadeCorrectamente(){
+        Pessoa julia= new Pessoa("julia", LocalDate.of(2000, 1, 1));
+        Assertions.assertEquals(22, julia.getIdade());
+    }
+
+    @Test
+    void deveRetornarSeEMaiorDeIdade(){
+        Pessoa julia= new Pessoa("julia", LocalDate.of(2000, 1, 1));
+        Assertions.assertTrue(julia.eMaiorDeIdade());
+
+
+        Pessoa joao= new Pessoa("Joao", LocalDate.now());
+        Assertions.assertFalse(joao.eMaiorDeIdade());
     }
     
 }
